@@ -1,0 +1,49 @@
+.site_chooser {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.site_chooser_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site_chooser_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border: 1px solid #d0d5dd;
+  border-radius: 0.75rem;
+  border-top: 6px solid var(--card_accent, #0e3b83);
+
+  &:focus-within {
+    outline: 3px solid #1d4ed8;
+    outline-offset: 2px;
+  }
+}
+
+.site_chooser_card_portfolyo { --card_accent: #2f2a24; }
+.site_chooser_card_dernek { --card_accent: #2e7d4f; }
+
+.site_chooser_link {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: inherit;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}

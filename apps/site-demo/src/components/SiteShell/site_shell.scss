@@ -1,0 +1,443 @@
+// Ortak iskelet; temalar yalnız değişkenleri ve birkaç düzen kuralını değiştirir.
+.site {
+  --brand: #0e3b83;
+  --ink: #101828;
+  --muted: #475467;
+  --surface: #fff;
+  --soft: #f2f4f7;
+  --radius: 0.5rem;
+  --heading-font: inherit;
+  --width: 72rem;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.site_skip {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #000;
+
+  &:focus {
+    top: 1rem;
+  }
+}
+
+.site_header {
+  border-bottom: 1px solid var(--soft);
+}
+
+.site_header_inner,
+.site_footer_inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site_brand {
+  font-family: var(--heading-font);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site_menu_toggle {
+  display: none;
+  margin-inline-start: auto;
+  min-height: 44px;
+  padding: 0 1rem;
+  border: 1px solid currentColor;
+  border-radius: var(--radius);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.site_nav {
+  margin-inline-start: auto;
+}
+
+.site_menu,
+.site_menu_sub {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site_menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+}
+
+.site_menu_item {
+  position: relative;
+}
+
+.site_menu_link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.25rem;
+  text-decoration: none;
+
+  &.active {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+}
+
+.site_menu_cta {
+  padding: 0 1rem;
+  border-radius: var(--radius);
+  background: var(--brand);
+  color: #fff;
+}
+
+.site_menu_sub {
+  position: absolute;
+  top: 100%;
+  inset-inline-start: 0;
+  z-index: 5;
+  display: none;
+  min-width: 12rem;
+  padding: 0.5rem;
+  border: 1px solid var(--soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgb(16 24 40 / 12%);
+}
+
+.site_menu_has_children:hover > .site_menu_sub,
+.site_menu_has_children:focus-within > .site_menu_sub {
+  display: block;
+}
+
+.site_languages {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+
+  a,
+  span {
+    display: inline-flex;
+    align-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  [aria-current] {
+    font-weight: 700;
+  }
+
+  [aria-disabled] {
+    color: var(--muted);
+  }
+}
+
+.site_main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.site_footer {
+  background: var(--soft);
+}
+
+.site_footer_nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.site_footer_title {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.site_footer_link {
+  display: inline-block;
+  padding: 0.25rem 0;
+}
+
+.site_footer_meta {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.site_cookie {
+  position: fixed;
+  inset-inline: 1rem;
+  bottom: 1rem;
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: #fff;
+
+  p {
+    flex: 1;
+    margin: 0;
+  }
+
+  button {
+    min-height: 44px;
+    padding: 0 1.25rem;
+    border: 0;
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 720px) {
+  .site_menu_toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .site_nav {
+    display: none;
+    flex-basis: 100%;
+  }
+
+  .site_nav_open {
+    display: block;
+  }
+
+  .site_menu {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .site_menu_sub {
+    position: static;
+    display: block;
+    border: 0;
+    box-shadow: none;
+    padding-inline-start: 1rem;
+  }
+}
+
+// --------------------------------------------------------------------------------------------- Temalar
+
+.site[data-theme="kurumsal"] {
+  --radius: 0.25rem;
+
+  .site_header {
+    background: var(--brand);
+    color: #fff;
+  }
+
+  .site_menu_sub {
+    color: var(--ink);
+  }
+
+  .site_menu_cta {
+    background: #fff;
+    color: var(--brand);
+  }
+}
+
+.site[data-theme="portfolyo"] {
+  --ink: #2f2a24;
+  --soft: #f5f2ec;
+  --radius: 0;
+  --heading-font: Georgia, "Times New Roman", serif;
+  --width: 80rem;
+
+  .site_header {
+    border-bottom: 0;
+  }
+
+  .site_brand {
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .site_menu_link {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8125rem;
+  }
+}
+
+.site[data-theme="dernek"] {
+  --soft: #eaf5ee;
+  --radius: 1rem;
+
+  .site_brand::before {
+    margin-inline-end: 0.5rem;
+    content: "●";
+    color: var(--brand);
+  }
+
+  .site_menu_cta {
+    border-radius: 999px;
+  }
+}
+
+.site_phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site_footer_about {
+  display: grid;
+  flex-basis: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 2rem;
+
+  p {
+    margin: 0 0 0.5rem;
+  }
+}
+
+.site_footer_phone {
+  font-size: 1.5rem;
+}
+
+.site_social {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid currentColor;
+    border-radius: var(--radius);
+  }
+}
+
+// Hukuk teması: lacivert zemin, altın vurgu, serif başlıklar, büyük boşluklar.
+.site[data-theme="hukuk"] {
+  --brand: #1c1f4a;
+  --gold: #b29a5f;
+  --ink: #1d1d2b;
+  --muted: #5d5d6e;
+  --soft: #f4f2ee;
+  --radius: 0;
+  --heading-font: Georgia, "Times New Roman", serif;
+  --width: 76rem;
+
+  .site_header {
+    position: absolute;
+    inset-inline: 0;
+    z-index: 4;
+    border-bottom: 1px solid rgb(255 255 255 / 15%);
+    color: #fff;
+  }
+
+  .site_brand {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .site_menu_link {
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    &.active {
+      color: var(--gold);
+      text-decoration: none;
+    }
+  }
+
+  .site_phone {
+    color: var(--gold);
+  }
+
+  .site_main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .site_footer {
+    background: #121433;
+    color: #c9c9d6;
+  }
+
+  .site_footer_title {
+    color: #fff;
+  }
+
+  .site_footer_phone a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .site_footer_meta {
+    color: #8e8ea3;
+  }
+
+  .site_social a {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+}
+
+@media (max-width: 720px) {
+  .site[data-theme="hukuk"] .site_header {
+    position: static;
+    background: var(--brand);
+  }
+
+  .site[data-theme="hukuk"] .site_phone {
+    order: -1;
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,117 @@
+.dashboard_widget_wide {
+  grid-column: span 2;
+}
+
+.dashboard_widget_list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dashboard_widget_item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-1);
+  padding: var(--app-space-2) 0;
+  border-bottom: 1px solid var(--app-color-border);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.dashboard_widget_item_row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-3);
+}
+
+.dashboard_widget_title {
+  font-weight: var(--app-font-weight-medium);
+  overflow-wrap: anywhere;
+}
+
+.dashboard_widget_meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-2);
+  margin: 0;
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+.dashboard_widget_empty {
+  margin: 0;
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+.dashboard_widget_actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: var(--app-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dashboard_widget_action {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  min-height: 2.75rem;
+  padding: var(--app-space-2) var(--app-space-3);
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-md);
+  color: var(--app-color-text);
+  text-decoration: none;
+
+  span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  &:hover {
+    border-color: var(--app-color-accent);
+    background: var(--app-color-surface-subtle);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--app-color-focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+.dashboard_widget_action_plus {
+  color: var(--app-color-accent);
+}
+
+.dashboard_widget_usage,
+.dashboard_widget_status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--app-space-2);
+}
+
+.dashboard_widget_usage {
+  align-items: stretch;
+}
+
+.dashboard_widget_link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--app-space-1);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .dashboard_widget_wide {
+    grid-column: auto;
+  }
+}

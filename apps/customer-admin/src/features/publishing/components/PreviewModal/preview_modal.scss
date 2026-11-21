@@ -1,0 +1,23 @@
+.preview_modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+}
+
+.preview_modal_meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-2);
+  margin: 0;
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+.preview_modal_surface {
+  padding: var(--app-space-4);
+  border: 1px solid var(--app-color-border);
+  border-radius: var(--app-radius-md);
+  background: var(--app-color-surface);
+  overflow-wrap: anywhere;
+}

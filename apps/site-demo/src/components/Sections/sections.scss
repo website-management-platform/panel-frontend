@@ -1,0 +1,715 @@
+.section {
+  margin-top: 3rem;
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--heading-font);
+    line-height: 1.25;
+  }
+}
+
+.section_page_title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.section_lead {
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+.section_button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 1rem;
+  padding: 0 1.25rem;
+  border: 2px solid var(--brand);
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.section_button_primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.section_button_secondary {
+  color: var(--brand);
+}
+
+.section_hero {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem 0 1rem;
+}
+
+.section_hero_title {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.section_hero_subtitle {
+  font-size: 1.25rem;
+  color: var(--muted);
+}
+
+.section_hero_image {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  aspect-ratio: 16 / 10;
+}
+
+.section_hero_split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.section_hero_full {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr);
+  padding-top: 0;
+
+  .section_hero_image {
+    grid-row: 1;
+    aspect-ratio: 21 / 9;
+  }
+
+  .section_hero_text {
+    grid-row: 2;
+  }
+}
+
+.section_hero_simple {
+  text-align: center;
+  justify-items: center;
+
+  .section_hero_subtitle {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+}
+
+.section_cards {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section_list_grid .section_cards {
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.section_list_list .section_cards {
+  grid-template-columns: minmax(0, 1fr);
+
+  .section_card_has_image {
+    display: grid;
+    grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+    gap: 1rem;
+  }
+}
+
+.section_card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+
+  &:focus-within {
+    outline: 3px solid #1d4ed8;
+    outline-offset: 2px;
+  }
+}
+
+.section_card_image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.section_card_body {
+  padding: 1rem;
+}
+
+.section_card_title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.section_card_link {
+  text-decoration: none;
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.section_card_stat {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.section_card_date,
+.section_card_text {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.section_cta {
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: var(--soft);
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.section_cta_banner {
+  background: var(--brand);
+  color: #fff;
+
+  .section_button_primary {
+    background: #fff;
+    border-color: #fff;
+    color: var(--brand);
+  }
+}
+
+.section_cta_card {
+  max-width: 36rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section_gallery_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: var(--radius);
+  }
+}
+
+.section_gallery_masonry .section_gallery_grid {
+  display: block;
+  columns: 3 14rem;
+
+  li {
+    margin-bottom: 1rem;
+    break-inside: avoid;
+  }
+}
+
+.section_prose,
+.section_article {
+  max-width: 44rem;
+}
+
+.section_prose_wide {
+  max-width: none;
+}
+
+.section_article_cover {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+.rich_text {
+  table {
+    border-collapse: collapse;
+  }
+
+  td,
+  th {
+    padding: 0.5rem;
+    border: 1px solid var(--soft);
+  }
+}
+
+@media (max-width: 720px) {
+  .section_hero_split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .section_list_list .section_cards .section_card_has_image {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+// Tema farkları
+.site[data-theme="portfolyo"] {
+  .section_card {
+    border: 0;
+  }
+
+  .section_card_body {
+    padding: 0.75rem 0;
+  }
+
+  .section_hero_full .section_hero_title {
+    font-weight: 400;
+  }
+}
+
+.site[data-theme="dernek"] {
+  .section_list_grid .section_card {
+    background: var(--soft);
+    border: 0;
+    text-align: center;
+  }
+
+  .section_button {
+    border-radius: 999px;
+  }
+}
+
+.section_eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--gold, var(--brand));
+}
+
+// Özellik kutuları ve adımlar
+.section_features_list {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section_features_boxes .section_features_list {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.section_feature {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.section_feature_icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--gold, var(--brand));
+  font-size: 1.25rem;
+}
+
+.section_feature_title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.section_feature_text {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.section_features_steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: end;
+}
+
+.section_features_image,
+.section_quotes_image,
+.section_media_text_image {
+  width: 100%;
+  object-fit: cover;
+}
+
+// Görsel ve metin
+.section_media_text {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.section_media_text_image-right .section_media_text_visual {
+  order: 2;
+}
+
+.section_media_text_visual {
+  position: relative;
+}
+
+.section_media_text_image {
+  aspect-ratio: 9 / 10;
+}
+
+.section_stat {
+  position: absolute;
+  inset-inline-start: -1.5rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 1.5rem 2rem;
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+}
+
+.section_stat_value {
+  font-family: var(--heading-font);
+  font-size: 2.5rem;
+  color: var(--gold, #fff);
+}
+
+.section_stat_label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+// Simgeli kutucuklar
+.section_tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--soft);
+  border-inline-start: 1px solid var(--soft);
+}
+
+.section_tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid var(--soft);
+  border-inline-end: 1px solid var(--soft);
+  text-align: center;
+
+  &:focus-within {
+    outline: 3px solid #1d4ed8;
+    outline-offset: -3px;
+  }
+}
+
+.section_tile_icon {
+  font-size: 1.75rem;
+  color: var(--gold, var(--brand));
+}
+
+.section_tile_title {
+  margin: 0;
+  font-size: 1rem;
+}
+
+// Alıntılar
+.section_list_quotes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.section_quote {
+  margin: 1.5rem 0 0;
+
+  blockquote {
+    margin: 0;
+    font-family: var(--heading-font);
+    font-size: 1.125rem;
+    font-style: italic;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+// Kişi kartları
+.section_people {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section_person_photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.section_person_body {
+  padding: 1rem;
+  background: var(--soft);
+}
+
+.section_person_name {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.section_person_title {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+// Taahhüt
+.section_statement {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section_statement_text {
+  font-family: var(--heading-font);
+  font-size: 1.25rem;
+}
+
+.section_statement_signature {
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: 2rem;
+  color: var(--gold, var(--brand));
+}
+
+.section_hero_background {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 34rem;
+  padding: 0;
+  color: #fff;
+
+  .section_hero_image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    height: 100%;
+    aspect-ratio: auto;
+    border-radius: 0;
+  }
+
+  .section_hero_text {
+    position: relative;
+    z-index: 1;
+    max-width: 40rem;
+    padding: 9rem 1rem 6rem;
+  }
+
+  .section_hero_subtitle {
+    color: rgb(255 255 255 / 85%);
+  }
+}
+
+@media (max-width: 860px) {
+  .section_features_steps,
+  .section_media_text,
+  .section_list_quotes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .section_media_text_image-right .section_media_text_visual {
+    order: 0;
+  }
+
+  .section_stat {
+    inset-inline-start: 1rem;
+  }
+
+  .section_hero_background .section_hero_text {
+    padding: 4rem 1rem;
+  }
+}
+
+// Hukuk teması: tam genişlikte dönüşümlü zeminler; içerik ortalanmış sütunda.
+.site[data-theme="hukuk"] {
+  .section {
+    margin: 0;
+    padding: 5rem max(1rem, calc((100% - var(--width)) / 2));
+  }
+
+  .section h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 400;
+  }
+
+  .section_hero_background {
+    padding: 0;
+
+    .section_hero_text {
+      margin-inline-start: max(1rem, calc((100% - var(--width)) / 2));
+    }
+
+    .section_hero_title {
+      font-weight: 400;
+    }
+  }
+
+  .section_features_boxes {
+    position: relative;
+    z-index: 2;
+    margin-top: -4rem;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .section_features_list {
+      gap: 0;
+      margin: 0;
+      box-shadow: 0 20px 40px rgb(16 18 50 / 12%);
+    }
+
+    .section_feature {
+      padding: 2rem;
+      background: #fff;
+
+      &:nth-child(2) {
+        background: var(--brand);
+        color: #fff;
+
+        .section_feature_text {
+          color: rgb(255 255 255 / 75%);
+        }
+      }
+    }
+  }
+
+  .section_features_steps {
+    background: var(--soft);
+    padding-bottom: 0;
+
+    .section_features_text {
+      padding-bottom: 5rem;
+    }
+
+    .section_feature_icon {
+      border: 1px solid var(--gold);
+      background: transparent;
+    }
+  }
+
+  .section_cta_banner {
+    border-radius: 0;
+    background: var(--brand);
+    text-align: center;
+
+    h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      color: var(--gold);
+    }
+
+    .section_button_primary {
+      background: transparent;
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+  }
+
+  .section_list_tiles {
+    background: var(--soft);
+    text-align: center;
+
+    .section_tiles {
+      background: #fff;
+      border-color: #ebe7df;
+    }
+
+    .section_tile {
+      border-color: #ebe7df;
+    }
+  }
+
+  .section_list_quotes {
+    background: var(--brand);
+    color: #fff;
+    padding-inline-end: 0;
+  }
+
+  .section_list_people {
+    text-align: center;
+
+    .section_person {
+      text-align: start;
+    }
+
+    .section_person_body {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .section_person_title {
+      color: rgb(255 255 255 / 85%);
+    }
+  }
+
+  .section_statement_dark {
+    max-width: none;
+    background: #23264f;
+    color: #fff;
+
+    h2 {
+      color: var(--gold);
+    }
+  }
+
+  .section_list_grid {
+    text-align: center;
+
+    .section_card {
+      text-align: start;
+    }
+  }
+
+  .section_button {
+    border-radius: 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+  }
+
+  .section_button_primary {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .section_button_secondary {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .section_eyebrow {
+    color: var(--gold);
+  }
+}

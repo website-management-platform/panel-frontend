@@ -1,0 +1,72 @@
+@use "@/styles/abstracts/variables" as *;
+
+// Başlıkta yer daralınca site adı kısalır; düğme ve kapsayıcısı küçülebilir.
+.site_switcher_dropdown {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.site_switcher {
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: center;
+  gap: var(--app-space-2);
+  min-width: 0;
+  max-width: 280px;
+  min-height: var(--app-control-height-md);
+  padding-inline: var(--app-space-2);
+  border-radius: var(--app-radius-md);
+  color: var(--app-color-text);
+  text-align: start;
+}
+
+button.site_switcher {
+  border: 1px solid var(--app-color-border);
+  transition: background-color var(--app-transition-fast);
+}
+
+@media (hover: hover) {
+  button.site_switcher:hover {
+    background-color: var(--app-color-surface-muted);
+  }
+}
+
+.site_switcher_icon,
+.site_switcher_chevron {
+  flex-shrink: 0;
+  color: var(--app-color-text-muted);
+}
+
+.site_switcher_text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.site_switcher_name,
+.site_switcher_tenant {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.site_switcher_name {
+  font-size: var(--app-font-size-sm);
+  font-weight: var(--app-font-weight-semibold);
+}
+
+.site_switcher_tenant {
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}
+
+@media (max-width: #{$breakpoint-md - 1px}) {
+  .site_switcher {
+    max-width: 160px;
+  }
+
+  .site_switcher_tenant {
+    display: none;
+  }
+}

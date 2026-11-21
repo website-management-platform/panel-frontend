@@ -1,0 +1,43 @@
+.focal_point_picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-2);
+}
+
+.focal_point_picker_frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--app-radius-md);
+  background: var(--app-color-surface-subtle);
+  cursor: crosshair;
+
+  img {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    object-fit: contain;
+    user-select: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--app-color-focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+.focal_point_picker_marker {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--app-color-on-accent);
+  border-radius: var(--app-radius-full);
+  background: var(--app-color-accent-solid);
+  box-shadow: var(--app-shadow-md);
+  transform: translate(-50%, -50%);
+}
+
+.focal_point_picker_hint {
+  margin: 0;
+  font-size: var(--app-font-size-xs);
+  color: var(--app-color-text-muted);
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@wmp/sdk",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Universal Website Admin delivery istemcisi: içerik, sayfa, menü, site haritası, yönlendirme ve güvenli zengin metin (docs/backend/11-delivery.md §9).",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.js"
+  }
+}

@@ -1,0 +1,25 @@
+.asset_picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+}
+
+.asset_picker_toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--app-space-2);
+}
+
+.asset_picker_search {
+  flex: 1 1 220px;
+}
+
+.asset_picker_filter {
+  flex: 0 1 200px;
+  min-width: 150px;
+}
+
+.asset_picker_count {
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}

@@ -1,0 +1,60 @@
+.submission_drawer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-5);
+  min-width: 0;
+}
+
+.submission_drawer_status {
+  max-width: 16rem;
+}
+
+.submission_drawer_label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-2);
+}
+
+.submission_drawer_text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.submission_drawer_empty,
+.submission_drawer_meta {
+  font-size: var(--app-font-size-sm);
+  color: var(--app-color-text-muted);
+}
+
+.submission_drawer_meta {
+  margin: 0;
+}
+
+.submission_drawer_section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-2);
+
+  h3 {
+    margin: 0;
+    font-size: var(--app-font-size-md);
+  }
+}
+
+.submission_drawer_files {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.submission_drawer_file {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--app-space-2);
+  overflow-wrap: anywhere;
+}
